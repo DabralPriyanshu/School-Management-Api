@@ -1,7 +1,5 @@
 import express from "express";
-
+import schoolController from "../../controllers/school.controller.js";
 const schoolRouter = express.Router();
-schoolRouter.get("/addSchool", (req, res) => {
-  throw new Error("error");
-});
+schoolRouter.post("/addSchool", schoolController.addSchool);
 export default schoolRouter;

@@ -1,6 +1,7 @@
 import express from "express";
+import ENV from "./config/server.config.js";
 const app = express();
 
-app.listen(3000, () => {
-  console.log(`Server started at http://localhost:3000`);
+app.listen(ENV.PORT, () => {
+  console.log(`Server started at http://localhost:${ENV.PORT}`);
 });

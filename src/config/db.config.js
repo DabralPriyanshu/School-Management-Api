@@ -5,6 +5,7 @@ const pool = mysql.createPool({
   user: ENV.DB_USER,
   password: ENV.DB_PASSWORD,
   database: ENV.DB_NAME,
+  port: ENV.DB_PORT,
 });
 
 export const checkConnection = async () => {

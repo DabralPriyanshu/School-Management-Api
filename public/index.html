@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School API Documentation</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 40px auto; padding: 20px; background: #f4f7f6; }
+        .card { background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin-bottom: 20px; border-left: 5px solid #007bff; }
+        .post-card { border-left-color: #28a745; }
+        .method { font-weight: bold; padding: 4px 8px; border-radius: 4px; color: #fff; margin-right: 10px; }
+        .post { background: #28a745; }
+        .get { background: #007bff; }
+        code { background: #eee; padding: 2px 5px; border-radius: 4px; font-family: monospace; }
+        pre { background: #2d2d2d; color: #ccc; padding: 15px; border-radius: 5px; overflow-x: auto; }
+        h2 { margin-top: 0; }
+        .endpoint-url { color: #666; font-family: monospace; }
+    </style>
+</head>
+<body>
+    <h1>School Management API <small style="font-size: 0.5em; color: #999;">v1.0</small></h1>
+    <hr>
+
+    <div class="card post-card">
+        <h2><span class="method post">POST</span> <span class="endpoint-url">/api/v1/schools/addSchool</span></h2>
+        <p>Adds a new school to the system. Data is validated before insertion.</p>
+        <strong>Required JSON Body:</strong>
+        <pre>{
+  "name": "Example School",
+  "address": "123 Street, City",
+  "latitude": 12.3456,
+  "longitude": 78.9012
+}</pre>
+        <strong>Responses:</strong>
+        <ul>
+            <li><code>201</code>: School successfully created.</li>
+            <li><code>400</code>: Bad Request (Validation failed).</li>
+            <li><code>500</code>: Internal Server Error.</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2><span class="method get">GET</span> <span class="endpoint-url">/api/v1/schools/listSchools</span></h2>
+        <p>Retrieves schools. If <code>latitude</code> and <code>longitude</code> are provided in query params, results are sorted by proximity.</p>
+        <strong>Query Parameters:</strong>
+        <code>?latitude=12.34&longitude=78.90</code>
+        <br><br>
+        <strong>Responses:</strong>
+        <ul>
+            <li><code>200</code>: List of schools (sorted if coords provided).</li>
+            <li><code>500</code>: Internal Server Error.</li>
+        </ul>
+    </div>
+</body>
+</html>

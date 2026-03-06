@@ -1,7 +1,7 @@
 import db from "../config/db.config.js";
 import calculateDistance from "../utils/calculateDistance.js";
 
-const addSchool = async (req, res) => {
+const addSchool = async (req, res, next) => {
   const { name, address, latitude, longitude } = req.body;
   try {
     const [result] = await db.execute(
@@ -18,7 +18,7 @@ const addSchool = async (req, res) => {
     next(error);
   }
 };
-const listSchools = async (req, res) => {
+const listSchools = async (req, res, next) => {
   try {
     const latitude = req.query?.latitude;
     const longitude = req.query?.longitude;

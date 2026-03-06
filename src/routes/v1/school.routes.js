@@ -7,4 +7,5 @@ schoolRouter.post(
   schoolMiddlewares.validateCreateSchoolRequest,
   schoolController.addSchool,
 );
+schoolRouter.get("/listSchools", schoolController.listSchools);
 export default schoolRouter;
